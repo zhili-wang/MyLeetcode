@@ -34,8 +34,10 @@ var deleteNode = function (root, key) {
       return root.left ?? root.right;
     }
     // 3: 左右孩子节点都存在
-    const minNode = getMinNode(root.right)
-    minNode.left = root.left
+    // 找到右子树中最小节点
+    const rightMinNode = getMinNode(root.right)
+    // 用左子树替换该节点的左孩子
+    rightMinNode.left = root.left
     root = root.right;
   }
   return root;
